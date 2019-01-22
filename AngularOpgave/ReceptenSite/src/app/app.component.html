@@ -1,19 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div>
+
+<div class="container mt-2">
   <form class="form-inline" [formGroup]="addForm">
-      <label for="Naam" class="mx-2">Naam recept</label>
+      <label for="receptNaam" class="mx-2">Naam recept</label>
       <input class="form-control" type="text" formControlName="receptNaam" name="receptNaam">
 
-      <label for="Calorieen" class="mx-2">Calorieen recept</label>
+      <label for="receptCalorieen" class="mx-2">Calorieen recept</label>
       <input class="form-control" type="text" formControlName="receptCalorieen" name="receptCalorieen">
 
-      <label for="Ingredienten" class="mx-2">Ingredienten recept</label>
+      <label for="receptIngredienten" class="mx-2">Ingredienten recept</label>
       <input class="form-control" type="text" formControlName="receptIngredienten" name="receptIngredienten">
 
       <label for="tijdBenodigd" class="mx-2">Benodigde Tijd</label>
       <input class="form-control" type="text" formControlName="tijdBenodigd" name="tijdBenodigd">
 
-      <button type="submit" (click)="" class="btn btn-primary m-2">Search!</button>
+      <button type="submit" (click)="addRecipe(addForm)" class="btn btn-primary m-2">Add!</button>
     </form>
 </div>
 

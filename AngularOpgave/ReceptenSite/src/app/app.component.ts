@@ -19,16 +19,18 @@ export class AppComponent {
   }
   initForm(){
     this.addForm = this.fb.group({
-      naam: '', 
-      aantalCalorieen: '', 
-      ingredienten: '', 
-      tijdNodig: ''
-    });
+      naam: [''], 
+      aantalCalorieen: [''], 
+      ingredienten: [''], 
+      tijdNodig: ['']
+    })
   }
-  public addRecipe(){
-    this.receptenService.addRecipe(new Recipe(this.addForm.value.naam, 
+  public addRecipe(addForm: FormGroup){
+    this.receptenService.addRecipe(new Recipe(
+      this.addForm.value.naam, 
       this.addForm.value.aantalCalorieen, 
       this.addForm.value.ingredienten, 
-      this.addForm.value.tijdNodig));
+      this.addForm.value.tijdNodigs
+      ));
   }
 }
