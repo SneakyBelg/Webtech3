@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>InhaalExamens</title>
+  <link rel='stylesheet' href='styles.css'>
+</head>
+<body>
+  <h2>Inhaal Examen aanvraag</h2>
+  <ul class="students">
+    <% for(var i=0; i<aanvragen.length; i++) {%>
+      <li class="student">
+        <span><%= aanvragen[i].Naam %></span>
+        <span><%= aanvragen[i].Examen %></span>
+        <span><%= aanvragen[i].Reden %></span>
+      </li>
+    <% } %>
+    </ul>
+</body>
+</html>

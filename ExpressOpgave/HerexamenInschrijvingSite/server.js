@@ -21,19 +21,24 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
 	res.render('create.ejs', {result: null});
 })
-
+    
+//Duplicate Checking moet met de aggregate functie waar ik geen tijdover voor heb /Kennis van heb
 app.post('/addAanvraag', (req, res) => {
     datumAanvraag = Date.now;
     console.log(req.body);
-    if (db.collection('inhaal').find(req.body)){
+    /*if (db.collection('inhaal').find(req.body)){
         console.log('Already exists');
-    }
-    else{
-        db.collection('inhaal').insertOne(req.body, (err, result) => {
-            if (err) return console.log(err)
-        
-            console.log('saved to database')
-            res.redirect('/')
-        })
-    }
+    }*/
+    db.collection('inhaal').insertOne(req.body, (err, result) => {
+        if (err) return console.log(err)
+        console.log('saved to database')
+        res.redirect('/')
+    })
 })
+
+app.get('/viewbyname', (req, res) => {
+    db.collection('inhaal').find().toArray((err, result) => {
+        if (err) return console.log(err)
+        res.render('found.ejs', {aanvragen: result})
+      })
+  })
